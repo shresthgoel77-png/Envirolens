@@ -4,6 +4,7 @@ from fastapi.responses import JSONResponse
 from fastapi.exceptions import HTTPException
 from core.config import settings
 from core.logger import logger
+from api.v1 import cameras
 
 app = FastAPI(
     title=settings.APP_NAME,
@@ -58,6 +59,7 @@ async def universal_exception_handler(request: Request, exc: Exception):
         },
     )
 
+app.include_router(cameras.router, prefix="/api/v1/cameras")
 
 # Health Check Endpoint
 @app.get("/health", status_code=status.HTTP_200_OK, tags=["System"])
