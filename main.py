@@ -4,7 +4,7 @@ from fastapi.responses import JSONResponse
 from fastapi.exceptions import HTTPException
 from backend.core.config import settings
 from backend.core.logger import logger
-from backend.api.v1 import cameras
+from backend.api.v1 import cameras, ws
 
 app = FastAPI(
     title=settings.APP_NAME,
@@ -69,3 +69,7 @@ async def health_check():
         "environment": settings.ENVIRONMENT,
         "app": settings.APP_NAME,
     }
+
+# Add this at the bottom of your main.py file
+app.include_router(cameras.router, prefix="/api/v1/cameras")
+app.include_router(ws.router)  # WebSockets don't strictly need a prefix
