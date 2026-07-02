@@ -4,7 +4,7 @@ import threading
 import uuid
 from ai.detector import PollutionDetector
 from core.logger import logger
-
+from ai.pipeline import ProcessingPipeline
 
 class VideoIngestor:
     def __init__(self, camera_id: uuid.UUID, stream_url: str):
@@ -16,7 +16,7 @@ class VideoIngestor:
         self._thread: threading.Thread | None = None
         
         # Access the singleton detector instance
-        self.detector = PollutionDetector()
+        self.pipeline = ProcessingPipeline(camera_id=self.camera_id)
 
     def start(self) -> None:
         """Launches the stream reader in a background thread."""
@@ -78,7 +78,7 @@ class VideoIngestor:
                     
                     try:
                         # Forward frame to our Singleton AI Model
-                        inference_results = self.detector.predict(frame)
+                        alerts = self.pipeline.process_frame(frame)
                         
                         # Trace processing metrics (Ready for metadata extraction in downstream modules)
                         logger.debug(f"Frame processed for camera {self.camera_id} at 1 FPS.")
