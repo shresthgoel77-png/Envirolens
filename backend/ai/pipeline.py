@@ -1,8 +1,8 @@
 import uuid
 from typing import Any, Dict, List
-from ai.tracker import PollutionTracker
-from ai.severity import calculate_severity
-from core.logger import logger
+from backend.ai.tracker import PollutionTracker
+from backend.ai.severity import calculate_severity
+from backend.core.logger import logger
 
 
 class ProcessingPipeline:

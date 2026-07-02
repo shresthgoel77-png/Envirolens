@@ -1,8 +1,8 @@
 import threading
 from typing import Any
 from ultralytics import YOLO
-from core.config import settings
-from core.logger import logger
+from backend.core.config import settings
+from backend.core.logger import logger
 
 
 class PollutionDetector:

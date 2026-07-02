@@ -5,10 +5,10 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 from sqlalchemy.exc import IntegrityError
 
-from db.database import get_db
-from models.camera import Camera
-from schemas.camera import CameraCreate, CameraResponse
-from core.logger import logger
+from backend.db.database import get_db
+from backend.models.camera import Camera
+from backend.schemas.camera import CameraCreate, CameraResponse
+from backend.core.logger import logger
 
 router = APIRouter(tags=["Cameras"])
 

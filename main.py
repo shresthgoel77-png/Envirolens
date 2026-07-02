@@ -2,9 +2,9 @@ import time
 from fastapi import FastAPI, Request, status
 from fastapi.responses import JSONResponse
 from fastapi.exceptions import HTTPException
-from core.config import settings
-from core.logger import logger
-from api.v1 import cameras
+from backend.core.config import settings
+from backend.core.logger import logger
+from backend.api.v1 import cameras
 
 app = FastAPI(
     title=settings.APP_NAME,

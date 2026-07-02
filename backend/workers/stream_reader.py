@@ -2,9 +2,9 @@ import cv2
 import time
 import threading
 import uuid
-from ai.detector import PollutionDetector
-from core.logger import logger
-from ai.pipeline import ProcessingPipeline
+from backend.ai.detector import PollutionDetector
+from backend.core.logger import logger
+from backend.ai.pipeline import ProcessingPipeline
 
 class VideoIngestor:
     def __init__(self, camera_id: uuid.UUID, stream_url: str):

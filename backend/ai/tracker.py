@@ -1,5 +1,5 @@
 from typing import Any
-from ai.detector import PollutionDetector
+from backend.ai.detector import PollutionDetector
 
 
 class PollutionTracker:

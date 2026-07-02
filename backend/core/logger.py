@@ -2,7 +2,7 @@ import json
 import logging
 import sys
 from datetime import datetime, timezone
-from core.config import settings
+from backend.core.config import settings
 
 
 class JsonFormatter(logging.Formatter):
